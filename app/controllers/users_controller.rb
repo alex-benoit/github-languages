@@ -4,8 +4,8 @@ require 'open-uri'
 # User Controller
 class UsersController < ApplicationController
   def show
-    access_token = '?access_token=051b1b751f26c2b757a5c253faddd534231156d0'
     input_user = params[:user]
+    access_token = "?access_token=" + ENV['github_token']
     @user = JSON.parse(open("https://api.github.com/users/#{input_user}" + access_token).read)
     user_repos = JSON.parse(open("https://api.github.com/users/#{input_user}/repos" + access_token).read)
     user_lang = {}

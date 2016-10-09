@@ -1,9 +1,9 @@
 <h1>
-  <%= @user["name"] %>'s Languages
+  <%= @user["name"] ? @user["name"] : @user["login"] %>'s Languages
 </h1>
 <ul>
   <% @sorted_languages.each do |lang_trio| %>
-    <li><%= lang_trio[0] + ", " + lang_trio[1].to_s + "KB, " + lang_trio[2].round(2).to_s + "%" %></li>
+    <li><%= lang_trio[0] + ", " + lang_trio[1].to_s + "bytes, ~" + (lang_trio[1]/25).to_s + " lines, " + lang_trio[2].round(2).to_s + "%" %></li>
   <% end %>
 </ul>
 <div id="donut" style="width:400px; height:400px;"></div>
@@ -19,7 +19,7 @@
           <% end %>
         ],
         formatter: function (y, data) { return y+'%' },
-        colors: ["#857786", "#A699AD", "#D1CFD4", "#CCD9E2", "#6688AB", "#264D6E", "#1E2D4E", "#010225"]
+        colors: ["#5A869F", "#3E95B1", "#5D9475", "#ACA940", "#BAB037", "#B79649", "#BA8058", "#BF6775", "#B65171", "#8E5C79", "#776B81"]
       });
     });
   <% end %>

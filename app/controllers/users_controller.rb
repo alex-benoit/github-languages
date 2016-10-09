@@ -11,7 +11,6 @@ class UsersController < ApplicationController
     user_lang = {}
     total_bytes = 0
     user_repos.delete_if { |repo| repo['fork'] == true } .each do |repo|
-      puts repo["name"]
       repo_lang = JSON.parse(open(repo['languages_url'] + access_token).read)
       repo_lang.each do |lang, bytes|
         user_lang[lang] ||= 0

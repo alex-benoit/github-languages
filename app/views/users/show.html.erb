@@ -1,0 +1,27 @@
+<h1>
+  <%= @user["name"] %>'s Languages
+</h1>
+<ul>
+  <% @sorted_languages.each do |lang_trio| %>
+    <li><%= lang_trio[0] + ", " + lang_trio[1].to_s + "KB, " + lang_trio[2].round(2).to_s + "%" %></li>
+  <% end %>
+</ul>
+<div id="donut" style="width:400px; height:400px;"></div>
+
+<%= content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      new Morris.Donut({
+        element: 'donut',
+        data: [
+          <% @sorted_languages.each do |lang_trio| %>
+            { label: '<%= lang_trio[0] %>', value: <%= (lang_trio[2]*10).ceil/10.0 %> },
+          <% end %>
+        ],
+        formatter: function (y, data) { return y+'%' },
+        colors: ["#857786", "#A699AD", "#D1CFD4", "#CCD9E2", "#6688AB", "#264D6E", "#1E2D4E", "#010225"]
+      });
+    });
+  <% end %>
+<% end %>
+

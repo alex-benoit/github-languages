@@ -1,12 +1,18 @@
 <h1>
   <%= @user["name"] ? @user["name"] : @user["login"] %>'s Languages
 </h1>
-<ul>
+<table>
   <% @sorted_languages.each do |lang_trio| %>
-    <li><%= lang_trio[0] + ", " + lang_trio[1].to_s + "bytes, ~" + (lang_trio[1]/25).to_s + " lines, " + lang_trio[2].round(2).to_s + "%" %></li>
+    <tr>
+      <td><%= lang_trio[0] %></td>
+      <td><%= "#{lang_trio[1]} bytes" %></td>
+      <td><%= "~#{lang_trio[1]/25} lines" %></td>
+      <td><%= "#{lang_trio[2].round(2)}%" %></td>
+    </tr>
   <% end %>
-</ul>
+</table>
 <div id="donut" style="width:400px; height:400px;"></div>
+<%= link_to "Back", root_path %>
 
 <%= content_for(:after_js) do %>
   <%= javascript_tag do %>

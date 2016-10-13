@@ -1,4 +1,4 @@
-/* -------------------------------------
- * CSS code specific to home page
- * (margin/padding adjustments)
- * ------------------------------------- */
+#home {
+  min-height: calc(100vh - 140px);
+  padding-top: 150px;
+}

@@ -2,8 +2,8 @@
  * Fonts
  * ------------------------------------- */
 // Google fonts
-@import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700|Roboto+Slab:100,300,400,500,700");
-$base-font: "Lato", "Helvetica", "sans-serif";
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700|Roboto+Slab:100,300,400,500,700");
+$base-font: "Open Sans", "Helvetica", "sans-serif";
 $header-font: "Roboto Slab", "Helvetica", "sans-serif";
 
 // Local fonts (uncomment following lines)
@@ -24,7 +24,7 @@ $base-height: 1.4;
  * Colors
  * ------------------------------------- */
 // Scheme
-$brand-color: #D23333;
+$brand-color: #CB4F4F;
 
 $red: #EE5F5B;
 $blue: #469AE0;

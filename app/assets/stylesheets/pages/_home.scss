@@ -1,9 +1,11 @@
 .vertically-align {
-  min-height: 90vh;
+  height: 95vh;
   display: flex;
   align-items: center;
 }
 #home {
+  padding-top: 120px;
+
   h1 {
     margin-top: 16px;
     margin-bottom: 50px;
@@ -64,6 +66,11 @@
   p {
     margin-top: 15px;
     color: #7B7B7B;
+  }
+
+  #about-the-site {
+    opacity: 0;
+    margin-top: 25px;
   }
 }
 

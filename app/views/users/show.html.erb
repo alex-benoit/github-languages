@@ -1,4 +1,5 @@
-<div class="container">
+<div class="top-line"></div>
+<div id="show" class="container">
   <div class="row">
     <div class="col-xs-12 col-md-10 col-md-offset-1 text-center">
       <h1>
@@ -6,29 +7,29 @@
       </h1>
       <div class="row">
         <div class="col-xs-12 col-md-6">
-          <table class="table-fill">
+          <table>
             <thead>
               <tr>
-                <th class="text-left">Language</th>
-                <!-- <th class="text-right">Storage</th> -->
-                <th class="text-right">Lines</th>
-                <th class="text-right">Percentage</th>
+                <th>Language</th>
+                <!-- <th>Storage</th> -->
+                <th>Lines</th>
+                <th>Percentage</th>
               </tr>
             </thead>
-            <tbody class="table-hover">
-              <% @sorted_languages.each do |lang_trio| %>
-                <tr>
-                  <td class="text-left"><%= lang_trio[0] %></td>
-                  <!-- <td class="text-right"><%# "#{lang_trio[1]} B" %></td> -->
-                  <td class="text-right"><%= "~#{lang_trio[1]/25} lines" %></td>
-                  <td class="text-right"><%= "#{lang_trio[2].round(2)}%" %></td>
-                </tr>
-              <% end %>
+            <tbody>
+            <% @sorted_languages.each do |lang_trio| %>
+              <tr>
+                <td><%= lang_trio[0] %></td>
+                <!-- <td><%# "#{lang_trio[1]} B" %></td> -->
+                <td><%= "~#{lang_trio[1]/25} lines" %></td>
+                <td><%= "#{lang_trio[2].round(2)}%" %></td>
+              </tr>
+            <% end %>
             </tbody>
           </table>
         </div>
         <div class="col-xs-12 col-md-6">
-          <div id="donut" style="width:400px; height:400px;"></div>
+          <div id="donut"></div>
         </div>
       </div>
       <%= link_to "Back", root_path, class: "btn btn-default" %>

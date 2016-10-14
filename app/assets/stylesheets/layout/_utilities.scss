@@ -11,3 +11,9 @@ a {
     text-decoration: underline;
   }
 }
+
+.top-line {
+  width: 100%;
+  min-height: 3px;
+  background-color: $brand-color;
+}

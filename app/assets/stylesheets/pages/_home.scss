@@ -1,17 +1,12 @@
-.home-top-line {
-  width: 100%;
-  min-height: 3px;
-  background-color: $brand-color;
-}
-
 .vertically-align {
   min-height: 90vh;
   display: flex;
   align-items: center;
 }
 #home {
-  img {
-    margin-bottom: 30px;
+  h1 {
+    margin-top: 16px;
+    margin-bottom: 50px;
   }
 
   .search-box {

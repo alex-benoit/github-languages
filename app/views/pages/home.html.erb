@@ -1,7 +1,3 @@
-<div class='top-line'></div>
-<%= link_to '#' do %>
-  <i class="fa fa-bars fa-lg btn button-menu"></i>
-<% end %>
 <div class='vertically-align'>
   <div id='home' class='container'>
     <div class='row'>
@@ -10,14 +6,14 @@
         <h1>GitHub Languages</h1>
         <div class='search-box'>
           <form id='form-github-username' class='search-form' action='/user' method='get'>
-            <input class='form-control' placeholder='GitHub Username' type='text' name='user'>
+            <input required class='form-control' placeholder='GitHub Username' type='text' name='user'>
             <button class='btn btn-link search-btn'>
               <i id='fa-search-button' class='fa fa-lg fa-search fa-fw'></i>
             </button>
           </form>
         </div>
         <p id='main-text-under-form'>Discover your favorite programming languages. <a id='show-about-this-site' href='#'>About this site</a>.</p>
-        <p id='about-this-site' class='transparent'>This website is built by <a href='#'>Alex</a>. It finds your favorite programming languages using your <a href='#'>GitHub</a> username. You can find out more <a href='#'>here</a>.</p>
+        <p id='about-this-site' class='transparent'>This website is built by <a href='#'>Alex</a>. It finds your favorite programming languages using your <a href='#'>GitHub</a> username. To find out more, read our <a href='#'>FAQ</a>.</p>
       </div>
     </div>
   </div>

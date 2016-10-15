@@ -3,8 +3,14 @@
     // margin-left: auto;
   }
 
+  img {
+    width: 150px;
+    height: auto;
+  }
+
   table {
-    width: 100%;
+    width: calc(100% - 20px);
+    margin: 0 10px;
 
     .left-align {
       text-align: left;
@@ -17,7 +23,7 @@
 
   h1 {
     margin-top: 60px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     position: relative;
 
     &:before, &:after{

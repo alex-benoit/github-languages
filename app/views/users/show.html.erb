@@ -1,38 +1,55 @@
 <div id="show" class="container">
+  <div class="row text-center">
+    <h1>
+      <%= @user["name"] ? @user["name"] : @user["login"] %>'s Profile
+    </h1>
+  </div>
   <div class="row">
-    <div class="col-xs-12 col-md-10 col-md-offset-1 text-center">
-      <h1>
-        <%= @user["name"] ? @user["name"] : @user["login"] %>'s Languages
-      </h1>
-      <div class="row">
-        <div class="col-xs-12 col-md-6">
-          <table>
-            <thead>
-              <tr>
-                <th class='left-align'>Language</th>
-                <th class='right-align'>Characters</th>
-                <th class='right-align'>Lines (approx)</th>
-                <th class='right-align'>Percentage</th>
-              </tr>
-            </thead>
-            <tbody>
-            <% @sorted_languages.each do |lang_trio| %>
-              <tr>
-                <td class='left-align'><%= lang_trio[0] %></td>
-                <td class='right-align'><%= "#{lang_trio[1]} characters" %></td>
-                <td class='right-align'><%= "~#{lang_trio[1]/25} lines" %></td>
-                <td class='right-align'><%= "#{lang_trio[2].round(2)}%" %></td>
-              </tr>
-            <% end %>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-xs-12 col-md-6">
-          <div id="donut"></div>
-        </div>
-      </div>
-      <%= link_to "Back", root_path, class: "btn btn-default" %>
+    <div class="col-xs-12 col-md-4">
+      <h3 class="text-center">Profile</h3>
+      <%= image_tag "#{@user["avatar_url"]}" %>
+      <ul>
+        <li>Name: <%= @user["name"] %></li>
+        <li>Company: <%= @user["company"] %></li>
+        <li>Email: <a href="mailto:<%= @user["email"] %>"> <%= @user["email"] %> </a></li>
+        <li>Website: <a href="<%= @user["blog"] %>"> <%= @user["blog"].chomp('/').reverse.chomp('//:ptth').chomp('//:sptth').chomp('.www').reverse %> </a></li>
+        <li>Joined: <%= Date.parse(@user["created_at"]).strftime('%B %Y') %></li>
+        <li>Public Repos: <%= @user["public_repos"] %></li>
+        <li>Followers: <%= @user["followers"] %></li>
+        <li>Following: <%= @user["following"] %></li>
+        <li>Collected Stars: <%= @total_stars %></li>
+      </ul>
     </div>
+    <div class="col-xs-12 col-md-4">
+      <h3 class="text-center">Languages</h3>
+      <table>
+        <thead>
+          <tr>
+            <th class='left-align'>Language</th>
+            <!-- <th class='right-align'>Characters</th> -->
+            <th class='right-align'>Lines (approx)</th>
+            <th class='right-align'>Percentage</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @sorted_languages.each do |lang_trio| %>
+          <tr>
+            <td class='left-align'><%= lang_trio[0] %></td>
+            <!-- <td class='right-align'><%# "#{lang_trio[1]} chars" %></td> -->
+            <td class='right-align'><%= "~#{number_with_delimiter(lang_trio[2])} lines" %></td>
+            <td class='right-align'><%= "#{lang_trio[3]}%" %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <h3 class="text-center">Distribution</h3>
+      <div id="donut"></div>
+    </div>
+  </div>
+  <div class="row text-center">
+      <%= link_to "Back", root_path, class: "btn btn-default" %>
   </div>
 </div>
 
@@ -43,7 +60,7 @@
         element: 'donut',
         data: [
           <% @sorted_languages.each do |lang_trio| %>
-            { label: '<%= lang_trio[0] %>', value: <%= (lang_trio[2]*10).ceil/10.0 %> },
+            { label: '<%= lang_trio[0] %>', value: <%= lang_trio[3] %> },
           <% end %>
         ],
         formatter: function (y, data) { return y+'%' },

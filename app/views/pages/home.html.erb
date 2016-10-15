@@ -9,14 +9,14 @@
         <%= image_tag('gitlang.png') %>
         <h1>GitHub Languages</h1>
         <div class='search-box'>
-          <form class='search-form' action='/user' method='get'>
+          <form id='form-github-username' class='search-form' action='/user' method='get'>
             <input class='form-control' placeholder='GitHub Username' type='text' name='user'>
             <button class='btn btn-link search-btn'>
-              <i class='fa fa-search'></i>
+              <i id='fa-search-button' class='fa fa-lg fa-search fa-fw'></i>
             </button>
           </form>
         </div>
-        <p>Discover your favorite programming languages. <a id='show-about-this-site' href='#'>About this site</a>.</p>
+        <p id='main-text-under-form'>Discover your favorite programming languages. <a id='show-about-this-site' href='#'>About this site</a>.</p>
         <p id='about-this-site' class='transparent'>This website is built by <a href='#'>Alex</a>. It finds your favorite programming languages using your <a href='#'>GitHub</a> username. You can find out more <a href='#'>here</a>.</p>
       </div>
     </div>
@@ -26,11 +26,17 @@
 <%= content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).ready(function() {
-      $("#show-about-this-site").on("click", function( e ) {
+      $( "#show-about-this-site" ).on( "click", function( e ) {
         e.preventDefault();
-        $("#about-this-site").toggleClass("transparent");
-        $("#show-about-this-site").toggleClass("underlined");
+        $( "#about-this-site" ).toggleClass( "transparent" );
+        $( "#show-about-this-site" ).toggleClass( "underlined" );
       });
+
+      $( "#form-github-username" ).on( "submit", function( e ) {
+        $( "#fa-search-button" ).removeClass( "fa-search" );
+        $( "#fa-search-button" ).addClass( "fa-spinner fa-spin" );
+      });
+
     });
   <% end %>
 <% end %>

@@ -8,7 +8,12 @@ a {
 
   &:hover {
     color: $brand-color;
-    text-decoration: underline;
+    text-decoration: underline !important;
+  }
+
+  &:visited, &:focus {
+    color: $brand-color;
+    text-decoration: none;
   }
 }
 
@@ -16,4 +21,19 @@ a {
   width: 100%;
   min-height: 3px;
   background-color: $brand-color;
+}
+
+.button-menu {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  color: #7B7B7B;
+  border-radius: 3px;
+  padding: 10px;
+  @include transition(all 200ms ease-in-out);
+
+  &:hover {
+    color: #fff;
+    background-color: #6D6D6D;
+  }
 }

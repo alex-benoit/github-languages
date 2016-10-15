@@ -1,4 +1,7 @@
 <div class='top-line'></div>
+<%= link_to '#' do %>
+  <i class="fa fa-bars fa-lg btn button-menu"></i>
+<% end %>
 <div class='vertically-align'>
   <div id='home' class='container'>
     <div class='row'>
@@ -26,6 +29,7 @@
       $("#show-about-this-site").on("click", function( e ) {
         e.preventDefault();
         $("#about-this-site").toggleClass("transparent");
+        $("#show-about-this-site").toggleClass("underlined");
       });
     });
   <% end %>

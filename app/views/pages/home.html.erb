@@ -7,15 +7,26 @@
         <h1>GitHub Languages</h1>
         <div class='search-box'>
           <form class='search-form' action='/user' method='get'>
-            <input class='form-control' placeholder='Github Username' type='text' name='user'>
+            <input class='form-control' placeholder='GitHub Username' type='text' name='user'>
             <button class='btn btn-link search-btn'>
               <i class='fa fa-search'></i>
             </button>
           </form>
         </div>
-        <p>Discover your favorite programming languages. <a href='#'>About this site</a>.</p>
-        <p id='about-the-site'>This website is built by <a href='#'>Alex</a>. It finds your favorite programming languages using your <a href='#'>GitHub</a> username. You can find out more <a href='#'>here</a>.</p>
+        <p>Discover your favorite programming languages. <a id='show-about-this-site' href='#'>About this site</a>.</p>
+        <p id='about-this-site' class='transparent'>This website is built by <a href='#'>Alex</a>. It finds your favorite programming languages using your <a href='#'>GitHub</a> username. You can find out more <a href='#'>here</a>.</p>
       </div>
     </div>
   </div>
 </div>
+
+<%= content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      $("#show-about-this-site").on("click", function( e ) {
+        e.preventDefault();
+        $("#about-this-site").toggleClass("transparent");
+      });
+    });
+  <% end %>
+<% end %>

@@ -68,9 +68,14 @@
     color: #7B7B7B;
   }
 
-  #about-the-site {
+  #about-this-site {
+    margin-top: 30px;
+    font-size: 15px;
+    transition: opacity .25s ease-in-out;
+  }
+
+  .transparent {
     opacity: 0;
-    margin-top: 25px;
   }
 }
 

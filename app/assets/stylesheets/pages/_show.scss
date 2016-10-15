@@ -1,9 +1,39 @@
 #show {
   #donut {
-    margin-left: auto;
+    // margin-left: auto;
   }
 
   table {
     width: 100%;
+
+    .left-align {
+      text-align: left;
+    }
+
+    .right-align {
+      text-align: right;
+    }
+  }
+
+  h1 {
+    margin-top: 60px;
+    margin-bottom: 50px;
+    position: relative;
+
+    &:before, &:after{
+      content: "";
+      position: absolute;
+      background-color: #333;
+      width: 35px;
+      height: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      }
+    &:before{
+      top: -10px;
+      }
+    &:after{
+      bottom: -10px;
+    }
   }
 }

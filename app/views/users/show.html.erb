@@ -9,19 +9,19 @@
           <table>
             <thead>
               <tr>
-                <th>Language</th>
-                <!-- <th>Storage</th> -->
-                <th>Lines</th>
-                <th>Percentage</th>
+                <th class='left-align'>Language</th>
+                <th class='right-align'>Characters</th>
+                <th class='right-align'>Lines (approx)</th>
+                <th class='right-align'>Percentage</th>
               </tr>
             </thead>
             <tbody>
             <% @sorted_languages.each do |lang_trio| %>
               <tr>
-                <td><%= lang_trio[0] %></td>
-                <!-- <td><%# "#{lang_trio[1]} B" %></td> -->
-                <td><%= "~#{lang_trio[1]/25} lines" %></td>
-                <td><%= "#{lang_trio[2].round(2)}%" %></td>
+                <td class='left-align'><%= lang_trio[0] %></td>
+                <td class='right-align'><%= "#{lang_trio[1]} characters" %></td>
+                <td class='right-align'><%= "~#{lang_trio[1]/25} lines" %></td>
+                <td class='right-align'><%= "#{lang_trio[2].round(2)}%" %></td>
               </tr>
             <% end %>
             </tbody>

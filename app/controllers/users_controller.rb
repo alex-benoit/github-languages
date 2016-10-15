@@ -42,4 +42,11 @@ class UsersController < ApplicationController
   rescue RestClient::Forbidden
     { 'error' => { 'message' => 'forbidden' } }
   end
+
+  private
+
+  def round_languages (nb_lines)
+    x = Math.log10(nb_lines).floor - 1
+    (nb_lines / (10.0**x)).round * 10**x
+  end
 end

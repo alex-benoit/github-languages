@@ -8,11 +8,11 @@
     <div class="col-xs-12 col-md-4">
       <h3 class="text-center">Profile</h3>
       <%= image_tag "#{@user["avatar_url"]}" %>
-      <ul>
+      <ul class="list-unstyled">
         <li>Name: <%= @user["name"] %></li>
         <li>Company: <%= @user["company"] %></li>
         <li>Email: <a href="mailto:<%= @user["email"] %>"> <%= @user["email"] %> </a></li>
-        <li>Website: <a href="<%= @user["blog"] %>"> <%= @user["blog"].chomp('/').reverse.chomp('//:ptth').chomp('//:sptth').chomp('.www').reverse %> </a></li>
+        <li>Website: <a href="<%= @user["blog"] %>"> <%= @user["blog"].chomp('/').reverse.chomp('//:ptth').chomp('//:sptth').chomp('.www').reverse if @user["blog"] %> </a></li>
         <li>Joined: <%= Date.parse(@user["created_at"]).strftime('%B %Y') %></li>
         <li>Public Repos: <%= @user["public_repos"] %></li>
         <li>Followers: <%= @user["followers"] %></li>
@@ -49,7 +49,7 @@
     </div>
   </div>
   <div class="row text-center">
-      <%= link_to "Back", root_path, class: "btn btn-default" %>
+      <%= link_to "Back", root_path, class: "btn btn-default back-button" %>
   </div>
 </div>
 

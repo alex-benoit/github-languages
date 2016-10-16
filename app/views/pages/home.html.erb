@@ -7,7 +7,7 @@
         <div class='search-box'>
           <form id='form-github-username' class='search-form' action='/user' method='get'>
             <input required class='form-control' placeholder='GitHub Username' type='text' name='user'>
-            <button class='btn btn-link search-btn'>
+            <button id='search-button-button' class='btn btn-link search-btn'>
               <i id='fa-search-button' class='fa fa-lg fa-search fa-fw'></i>
             </button>
           </form>
@@ -29,6 +29,7 @@
       });
 
       $( "#form-github-username" ).on( "submit", function( e ) {
+        $( "#search-button-button" ).focus();
         $( "#fa-search-button" ).removeClass( "fa-search" );
         $( "#fa-search-button" ).addClass( "fa-spinner fa-spin" );
       });

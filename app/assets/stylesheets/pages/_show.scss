@@ -6,6 +6,14 @@
   img {
     width: 150px;
     height: auto;
+    border-radius: 3px;
+
+    display: block;
+    margin: 10px auto;
+  }
+
+  ul {
+    text-align: center;
   }
 
   table {
@@ -41,5 +49,9 @@
     &:after{
       bottom: -10px;
     }
+  }
+
+  .back-button {
+    margin-top: 30px;
   }
 }

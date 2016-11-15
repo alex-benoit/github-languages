@@ -10,14 +10,14 @@
       <%= image_tag "#{@user["avatar_url"]}" %>
       <ul class="list-unstyled">
         <li>Name: <%= @user["name"] %></li>
-        <li>Company: <%= @user["company"] %></li>
-        <li>Email: <a href="mailto:<%= @user["email"] %>"> <%= @user["email"] %> </a></li>
+        <li>Company: <%= @user["company"] || "none specified" %></li>
+        <li>Email: <a href="mailto:<%= @user["email"] %>"> <%= @user["email"] || "none specified" %> </a></li>
         <li>Website: <a href="<%= @user["blog"] %>"> <%= @user["blog"].chomp('/').reverse.chomp('//:ptth').chomp('//:sptth').chomp('.www').reverse if @user["blog"] %> </a></li>
         <li>Joined: <%= Date.parse(@user["created_at"]).strftime('%B %Y') %></li>
         <li>Public Repos: <%= @user["public_repos"] %></li>
         <li>Followers: <%= @user["followers"] %></li>
         <li>Following: <%= @user["following"] %></li>
-        <li>Collected Stars: <%= @total_stars %></li>
+        <li><strong>Collected Stars:</strong> <%= @total_stars %></li>
       </ul>
     </div>
     <div class="col-xs-12 col-md-4">

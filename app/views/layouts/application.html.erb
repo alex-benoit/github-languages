@@ -8,6 +8,7 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= analytics_init if GoogleAnalytics.valid_tracker? %>
   </head>
   <body>
     <div class='top-line'></div>
